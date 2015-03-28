@@ -6,7 +6,8 @@
 #include "generations.h"
 #include "base.h"
 
-int main() {
+int main(int argc, char **argv[]) {
+
 create_base( void **wsk, FILE *out_base);//tworzy plik bazowy(jeden ze wszystkich)
 czytaj_ngramy(FILE *out, int ngram);//tworzy listę ngramów
 create_matrix(lista_t ngramy);//tworzy macierz przejsc miedzy sufixami i prefixami

@@ -25,12 +25,12 @@ typedef struct node {//drzewo -możliwe sufixy
 
 typedef struct {//macierz przejść-dla danych prefixów zestawienie mozliwych sufixów(w postaci drzewa)
         struct elem prefix;
-        node sufix;
+        struct node sufix;
 } Matrix_t;
 
 typedef struct elemM { //lista zawierająca wszystkie możliwości sufix-prefix
         Matrix_t pre_suf;
-        lista_M *next;
+        struct elemM *next;
 }elemM_t, *listaM_t;
 
 listan_t read_ngram(char *nazwa_pliku, int ngram);//
@@ -40,10 +40,10 @@ list_prefix delete_l_prefix(list_prefix l); //usuwa z początku prefix
 void print_l_prefix(list_prefix l, FILE *);//zapisuje listę prefixów do pliku FILE
 void insert_ngram(ngram_t *ngr, struct elem *prefix, char *sufix);
 void insert_Matrix(Matrix_t *matrix, struct node *sufix, struct elem *prefix);
-lista_M create_matrix(listan_t ngramy);//tworzy macierz przejść
-tree_t insert( tree_t t, char *slowo, int licznik );  // wstawia element do drzewa
+listaM_t create_matrix(listan_t ngramy);//tworzy macierz przejść
+//tree_t insert( tree_t t, char *slowo, int licznik );  // wstawia element do drzewa
 
-
+/*
 tree_t insert( tree_t t, char *sufix) {
     if( t == NULL) {
             node_t *n=malloc(sizeof *n);
@@ -57,11 +57,11 @@ tree_t insert( tree_t t, char *sufix) {
     } else if(t->licznik=)
 
     }
-
+*/
 
 
 //lista_t *get_ngram(lista_t *F, char *wyraz);
-
+listaM_t *get_address(listan_t *F, char *wyraz);
 
 #endif _NGRAM_H_
 

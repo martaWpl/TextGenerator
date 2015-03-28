@@ -3,8 +3,8 @@
 #include "ngram.h"
 #include <string.h>
 
-lista_t *get_address(lista_t *F, char *wyraz) {
-    lista_t *temp;
+listan_t *get_address(listan_t *F, char *wyraz) {
+    listan_t *temp;
     temp=F;
     while (temp!=NULL && (temp->ngr.prefix)!=wyraz)
         temp=temp->nast;
@@ -18,16 +18,16 @@ void wypelnij_ngram(ngram_t *ngr, char *prefix, char *sufix) {
     strcpy( ngr->sufix, sufix ); 
 } 
 
-lista_t czytaj_ngramy(char *nazwa_pliku) {
+listan_t czytaj_ngramy(char *nazwa_pliku) {
     FILE *in=fopen(nazwa_pliku, "r");
     char prefix[20];
     char sufix[20];
     
-    lista_t l=NULL;
+    listan_t l=NULL;
     while(fscanf(in,"%s %s", prefix, sufix) == 2) {
-        lista_t nw=malloc(sizeof*nw);
+        listan_t nw=malloc(sizeof*nw);
         wypelnij_ngram(&(nw->ngr),prefix,sufix);
-        nw->nast=l;
+        nw->next=l;
         l=nw;
         }
         fclose(in);
