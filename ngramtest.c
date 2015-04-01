@@ -1,27 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "ngram.h"
 
-int main( int argc, char **argv ) {
-  if( argc < 2 ) {
-    fprintf( stderr, "Uzycie: %s <nazwa-pliku>\n", argv[0] );
-    return 0;
-  }
+  int main( int argc, char **argv) {
+    if( argc > 1 ) {
+      printf( "Użycie: %s <nazwa pliku>\n", argv[1] );
+    }
+    int n = atoi(argv[2]);
+   printf("Program dla %d gramow!\n", n);
 
-  listan_t l = czytaj_ngramy( argv[1] );
+   listan_t lista_ngramow=read_ngram(argv[1],n);
+   
 
 
-  listan_t it = l;
-
-  while( it != NULL ) {
-    printf( "%-15s %-25s \n", it->s.prefix, it->s.sufix );
-    it = it->nast;
-  }
-  lista_t *tmp=get_address(it,Ala);
-    if (tmp!=NULL) printf("%s\n",it->s.sufix);
-    else printf("NULL\n");
-
-   return 0;
-}
+  return 0;
+   }
 

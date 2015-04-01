@@ -33,7 +33,9 @@ typedef struct elemM { //lista zawierająca wszystkie możliwości sufix-prefix
         struct elemM *next;
 }elemM_t, *listaM_t;
 
-listan_t read_ngram(char *nazwa_pliku, int ngram);//
+listan_t read_ngram(char *nazwa_pliku, int ngram);//tworzy listę ngramów z pliku
+void read_ngramy(char *nazwa_pliku, int ngram);
+void print_list (listan_t ngrams, FILE *out);//drukuje liste ngramow do plik
 list_prefix insert(list_prefix l, char *slowo);//wstawianie elementu do listy prefixów
 list_prefix add_l_prefix(list_prefix l, char *slowo);//dodaje na końcu prefix
 list_prefix delete_l_prefix(list_prefix l); //usuwa z początku prefix
