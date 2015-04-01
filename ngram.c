@@ -3,13 +3,13 @@
 #include "ngram.h"
 #include <string.h>
 
-listan_t *get_address(listan_t *F, char *wyraz) {
+/*listan_t *get_address(listan_t *F, char *wyraz) {
     listan_t *temp;
     temp=F;
     while (temp!=NULL && (temp->ngr.prefix)!=wyraz)
         temp=temp->nast;
     return temp;
-}
+}*/
 
 void wypelnij_ngram(ngram_t *ngr, char *prefix, char *sufix) { 
     ngr->prefix = malloc( (strlen(prefix)+1) * sizeof *(ngr->prefix) ); 
